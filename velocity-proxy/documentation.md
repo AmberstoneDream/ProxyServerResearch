@@ -1,6 +1,6 @@
 # Creating a Minecraft server network with Velocity
 
-This document summarize the configuration of the Velocity proxy with Paper Minecraft servers.
+This document summarizes the configuration of the Velocity proxy with Paper Minecraft servers.
 
 You should be able to create servers accessible from a single gateway by following the steps below.
 
