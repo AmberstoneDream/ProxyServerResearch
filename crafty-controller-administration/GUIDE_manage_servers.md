@@ -4,16 +4,16 @@ This document summarizes the Minecraft server guides listed on the left of this 
 
 > I assume you already have installed Crafty Control, and it is running on https://localhost:8443.
 
-### Table of content
+## Table of content
 
-* [A. Server creation](#a)
-* [B. Server configuration](#b)
-* [C. File management](#c)
-* [D. Backup management](#d)
-* [E. Task Scheduler](#e)
-* [F. Metrics](#f)
+* [A. Server creation](#i)
+* [B. Server configuration](#ii)
+* [C. File management](#iii)
+* [D. Backup management](#iv)
+* [E. Task Scheduler](#v)
+* [F. Metrics](#vi)
 
-### A. Server creation <div id='a'/>
+## I. Server creation <div id='i'/>
 
 The server creation interface is probably simple enough for you to understand how to handle it, so I'm not going to explain everything but just highlight the important details.
 
@@ -21,7 +21,7 @@ Full explanation on this Crafty documentation: [Minecraft Server Creation](https
 
 <img src="https://docs.craftycontrol.com/img/page-assets/user-guide/server-creation/minecraft/server-builder.png" height="500px">
 
-#### 1. Select a server type
+### A. Select a server type
 
 There are multiple server types available _(from the [ServersJar API](https://serverjars.com/))_:
 
@@ -35,17 +35,17 @@ There are multiple server types available _(from the [ServersJar API](https://se
 
 _I choose to create a Velocity server, and two Paper servers (my goal is to get access to all servers using a single IP address, and to be able to change server in-game with `/server <SERVER>`)._
 
-#### 2. Set the minimum and maximum memory (RAM)
+### B. Set the minimum and maximum memory (RAM)
 
 As explained in the Velocity documentation, [it is recommended to use at least 6-10GB of memory](https://docs.papermc.io/paper/aikars-flags#recommended-memory).
 
-#### 3. Define the port
+### C. Define the port
 
 **Make sure not to use the same port for your servers, because `25565` is always the default one!**
 
 _I choose `25577` for my Velocity server, `25565` and `25566` for my Paper servers._
 
-#### 4. Run the server
+### D. Run the server
 
 Once imported, run the server with the **Start** button.
 
@@ -55,13 +55,13 @@ As this is your first time starting the server, you will be asked to confirm you
 
 **Your server is now running!**
 
-### B. Server configuration <div id='b'/>
+## II. Server configuration <div id='i'/>
 
 The Crafty documentation provides the detailed explanation of the global server configuration on this page: [Minecraft Server Configuration](https://docs.craftycontrol.com/pages/user-guide/server-config/minecraft/).
 
 I'm just reusing their table for this section.
 
-#### 1. Options
+### A. Options
 
 | Option | Description |
 | ---- | ---- |
@@ -79,7 +79,7 @@ I'm just reusing their table for this section.
 | Ignored Crash Exit Codes | The exit codes that Crafty's crash detection feature will ignore, treating them as "normal" exits. |
 | Remove Old Logs After | The number of days Crafty should keep server log files before automatically removing them (use 0 to disable this option). |
 
-#### 2. Switch buttons
+### B. Switch buttons
 
 | Switch button | Description |
 | ---- | ---- |
@@ -89,14 +89,14 @@ I'm just reusing their table for this section.
 
 > **Starting a proxy server will not start your Minecraft servers automatically**, `Server Auto Start` is used to start a server on Crafty startup.
 
-#### 3. Buttons
+### C. Buttons
 
 | Button | Description |
 | ---- | ---- |
 | Update Executable | This button updates the server executable file, including a backup. For Minecraft Java, a direct download link must be provided. See the Server Executable Update URL option. |
 | Delete | This button deletes your server. It prompts for confirmation and offers to delete associated files and backups. |
 
-### C. File management <div id='c'/>
+## III. File management <div id='iii'/>
 
 Full explanation on this Crafty documentation: [Server File Manager](https://docs.craftycontrol.com/pages/user-guide/file-manager/).
 
@@ -105,7 +105,7 @@ Crafty comes with a file manager in which you can do everything without the need
 > You could manage your servers with SCP, SFTP, etc. **but this is not recommended** as you will have to manage multiple users and permissions on your linux server and **this could increase security risks.**
 
 
-#### 1. Context menu
+### A. Context menu
 
 The context menu is the pop-up displaying when you right click a file or a directory.
 
@@ -113,14 +113,14 @@ The context menu is the pop-up displaying when you right click a file or a direc
 * Directory context menu options are `Create file`, `Create directory`,`Rename` and `Upload`.
 * `.zip` files have an additional `Unzip` button.
 
-#### 2. Uploading files
+### B. Uploading files
 
 Here are a few notes on uploading files that you may want to know about:
 * You can upload multiple files at once.
 * You can drag and drop the files you may want to upload (by aiming at the "Select files" button).
 * **It's not possible to upload a directory, BUT** you can upload a `.zip` of that directory, then right-click and unzip.
 
-#### 3. Edit files
+### C. Edit files
 
 You don't have to download your files to edit them, Crafty comes with an embedded file editor.
 
@@ -128,7 +128,7 @@ To expand the file editor click on the `Toggle Editor Size` button, and adjust t
 
 Make sure to `Save` or to `CTRL`+`S` your file before leaving.
 
-### D. Backup management <div id='d'/>
+## IV. Backup management <div id='iv'/>
 
 The backup manager interface is quite self explanitory.
 
@@ -136,37 +136,37 @@ This section is also based on this Crafty documentation: [Server Backup Manager]
 
 For each step below, don't forget to hit `Save` after modification before exiting the interface.
 
-#### 1. Max backups
+### A. Max backups
 
 You can set the maximum number of backups to avoid overloading your SSD. Set `0` if you don't want any limit.
 
-#### 2. Compress backup
+### B. Compress backup
 
 This option allows you to compress your backups, but **Crafty recommends NOT using it ✖️** as this could lead to unintended side effects such as chunk corruption or artifacting.
 
-#### 3. Shutdown During Backup
+### C. Shutdown During Backup
 
 This option allows you to stop your server for the duration of your backups, and then restart it. **Crafty recommends using it ✔️**, because if changes are actively made during the backup, this could lead to data loss or corruption.
 
-#### 4. Run command before/after backups
+### D. Run command before/after backups
 
 This option allows you to run commands before and after backups. The main use would be to inform your players that the server is about to go into maintenance for a few minutes, to kick them with a message, etc.
 
-#### 5. Backup Exclusions
+### E. Backup Exclusions
 
 This option can be a very useful option, as you'll probably want not to backup some voluminous data, such as all your plugins which you may already have in another backup, your dynmap-rendered tile data, etc.
 
-#### 6. Schedule Backups
+### F. Schedule Backups
 
 **You'll probably want to schedule backups, this can be done with the task scheduler.** It is explained in [the next paragraph](#e).
 
-### E. Task Scheduler <div id='e'/>
+## V. Task Scheduler <div id='v'/>
 
 As all the above paragraphs, this section is based on this Crafty documentation: [Server Task Scheduler](https://docs.craftycontrol.com/pages/user-guide/task-scheduler/).
 
 The task scheduler allows you to set up complex schedules easily,  specifying intervals in an advanced way, and to chain them.
 
-#### 1. Tasks
+### A. Tasks
 
 Here is the list of possible tasks:
 - Start a server
@@ -175,13 +175,13 @@ Here is the list of possible tasks:
 - Backup a server
 - Run a Minecraft command (do not include the '/')
 
-#### 2. Basic Scheduler
+### B. Basic Scheduler
 
 With the "Basic" scheduler, you can specify the interval between executions of your schedule, in days, hours or minutes.
 
 If you select "days" it will ask for a time (hh:mm).
 
-#### 3. Cron Scheduler
+### C. Cron Scheduler
 
 With the cron scheduler, specify the interval with a cron string.
 
@@ -191,13 +191,13 @@ Take a look at this website if you want to learn cron strings: https://www.geeks
 
 > Crafty recommends using https://crontab.guru/ to generate cron strings easily.
 
-#### 4. Reaction (trigger)
+### D. Reaction (trigger)
 
 This schedule is triggered when the parent schedule completes.
 
 You can add a delay in seconds before its execution.
 
-### F. Metrics <div id='f'/>
+## VI. Metrics <div id='vi'/>
 
 This intuitive interface shows the CPU and RAM usage over the selected period, as well as the number of online players.
 
