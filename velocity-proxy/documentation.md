@@ -23,7 +23,7 @@ You should be able to create servers accessible from a single gateway by followi
   java -Xms6G -Xmx6G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:InitiatingHeapOccupancyPercent=15 -jar paper*.jar --nogui
   ```
   - You can specify the port by adding `--port=<PORT>`, **but we'll define it later** in the `server.properties`.
-  - You can edit the initial RAM allocation `-Xms`, and the maximal RAM allocation `-Xmx`, but it is recommended to use at least 6-10GB ([read more about JVM startup flags here](https://docs.papermc.io/paper/aikars-flags)).
+  - You can edit the initial RAM allocation `-Xms`, and the maximal RAM allocation `-Xmx`, but it is recommended to use at least 6-10GB ([read more about JVM startup flags here](https://docs.papermc.io/paper/aikars-flags#recommended-memory)).
 
 - Accept Minecraft [EULA](https://aka.ms/MinecraftEULA) by setting `eula=true` in `eula.txt`.
 
@@ -33,6 +33,10 @@ You should be able to create servers accessible from a single gateway by followi
   ```
 
 - Your Minecraft server is now running on `127.0.0.1:25565`.
+
+> This document is not intended to describe the configuration of a Paper server. Nevertheless, you will find here a detailed explanation of each Paper configuration parameter:
+> * [Paper Global Configuration](https://docs.papermc.io/paper/reference/global-configuration)
+> * [Paper World Configuration](https://docs.papermc.io/paper/reference/world-configuration)
 
 ## II. Velocity proxy installation
 
